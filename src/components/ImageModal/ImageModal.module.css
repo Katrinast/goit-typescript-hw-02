@@ -1,0 +1,43 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  padding-top: 60px;
+  max-width: 80%;
+  max-height: 100%;
+  overflow: auto;
+  outline: none;
+}
+
+.description {
+  margin: 8px 0;
+  color: blueviolet;
+  font: 15px;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+p {
+  color: rgb(216, 13, 47);
+  font-size: 20px;
+}
+
+p span {
+  color: rgb(8, 6, 138);
+}
+
+.btn {
+  position: absolute;
+  top: 16px;
+  left: 90%;
+}

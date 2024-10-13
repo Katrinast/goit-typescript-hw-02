@@ -1,0 +1,14 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-content: center;
+  margin: 20px 0 20px;
+}
+
+.galleryItem {
+  width: calc((100% - 48px) / 3);
+  border: 1px solid #808080;
+  box-sizing: border-box;
+}
