@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchImages } from "../../apiService";
+import { fetchImages } from "../../Apiservice/apiService";
+import { Image, Modaldata } from "../../Apiservice/apiService.type";
 
 
 import ImageGallery from "../ImageGallery/ImageGallery";
@@ -12,15 +13,15 @@ import ImageModal from "../ImageModal/ImageModal";
 import css from "./App.module.css"
 
 export default function App() {
-  const [query, setQuery] = useState('');
-  const [page, setPage] = useState(1);
-  const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [isEmpty, setIsEmpty] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-const [total, setTotal] = useState(0);
+  const [query, setQuery] = useState<string>('');
+  const [page, setPage] = useState<number>(1);
+  const [images, setImages] = useState<Image[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<Modaldata>(null);
+const [total, setTotal] = useState<number>(0);
 
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const [total, setTotal] = useState(0);
         setImages((prevImages) => [...prevImages, ...results]);
         
       } catch (error) {
-        setError(error);
+        setError(true);
 
       } finally {
         setIsLoading(false);
@@ -49,7 +50,7 @@ const [total, setTotal] = useState(0);
     fetchData();
   }, [page, query])
 
-  const openModal = (image) => {
+  const openModal = (image: Image): void => {
     setIsOpen(true);
     setSelectedImage(image);
   } 
@@ -59,12 +60,12 @@ const [total, setTotal] = useState(0);
     setSelectedImage(null);
   }
   
-  const onHandleSubmit = value => {
+  const onHandleSubmit = (value: string): void => {
     setQuery(value);
     setImages([]);
     setPage(1);
     setIsEmpty(false);
-    setError(null);
+    setError(false);
   }
 
   const handleLoadMore = () => {

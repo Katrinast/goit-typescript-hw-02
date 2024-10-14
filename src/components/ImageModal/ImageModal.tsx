@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import { FaWindowClose } from "react-icons/fa";
-
+import { Image } from '../../Apiservice/apiService.type';
 
 import css from "./ImageModal.module.css"
 
@@ -20,8 +20,14 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
+interface ImageModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  image: Image | null;
+}
 
-export default function ImageModal({ isOpen, onRequestClose, image }) {
+
+const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onRequestClose, image }) => {
  
   if (!image) {
     return null; 
@@ -50,3 +56,5 @@ export default function ImageModal({ isOpen, onRequestClose, image }) {
     </Modal>
   );
 }
+
+export default ImageModal;

@@ -1,7 +1,9 @@
+import { ReactElement } from 'react'
 import { ColorRing } from 'react-loader-spinner'
 
 
-export default function Loader() {
+
+export default function Loader(): ReactElement {
   return (
     <ColorRing
      
@@ -10,6 +12,7 @@ export default function Loader() {
   width="80"
   ariaLabel="color-ring-loading"
       wrapperStyle={{
+  
         display: "flex",
         justifyContent: "center",
          alignItems: "center",

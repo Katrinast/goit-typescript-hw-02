@@ -1,3 +1,8 @@
-export default function ErrorMessage() {
-  return <p>Opss somthing wrong! Try again</p>
+interface ErrorMessageProp {
+  message?: string;
+}
+
+
+export default function ErrorMessage({message = "Opss somthing wrong! Try again"}: ErrorMessageProp) {
+  return <p>{message}</p>
 }
